@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Change list if desired
+PACKAGE=("htop" "curl" "wget")
+
+#Check if package is installd by looping over the array to check each one
+for package in "${PACKAGE[@]}"; do
+    if dpkg -l | grep -Eq "^ii  $package"; then
+        echo "package $package is installed"
+    else
+        echo "package $package is not installed"
+    fi
+done
